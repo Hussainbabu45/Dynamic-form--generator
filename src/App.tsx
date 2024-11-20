@@ -1,26 +1,16 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import JSONEditor from "./components/JSONEditor";
+import FormPreview from "./components/FormPreview";
 
-function App() {
+const App: React.FC = () => {
+  const [schema, setSchema] = useState<string>("");
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="flex h-screen">
+      <JSONEditor schema={schema} setSchema={setSchema} />
+      <FormPreview schema={schema} />
     </div>
   );
-}
+};
 
 export default App;
